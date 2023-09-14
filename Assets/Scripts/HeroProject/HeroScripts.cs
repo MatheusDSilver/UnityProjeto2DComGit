@@ -6,6 +6,7 @@ using TMPro;
 
 public class HeroScripts : MonoBehaviour
 {
+    
     public Transform HeroiT;
     public Rigidbody2D HeroiRg;
     public Animator HeroiA;
@@ -43,7 +44,8 @@ public class HeroScripts : MonoBehaviour
 
     public TMP_Text CoinTMP;
 
-   
+    public RawImage rImg;
+
 
 
     // Start is called before the first frame update
@@ -64,6 +66,14 @@ public class HeroScripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //RawImage
+        Rect temp = new Rect(rImg.uvRect);
+        temp.x += 0.3f * Time.deltaTime;
+        rImg.uvRect = temp;
+
+        //uvRect é do tipo Rect, por isso ele precisa receber um rect. Lembra: int recebe int, double recebe double...
+        //Fim
+
         if (Alive)
         {
             //Virar o personagem para a esquerda e direita
